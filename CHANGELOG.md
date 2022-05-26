@@ -2,6 +2,8 @@
 
 ## [Unreleased][unreleased]
 
+- Fix icons path in javascript to work in raw-html
+
 ## [0.1.0][] - 2022-05-26
 
 - Add JavaScript interpretation

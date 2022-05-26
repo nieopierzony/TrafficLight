@@ -1,7 +1,7 @@
 'use strict';
 
 const INTERVAL_DELAY = 1000;
-const IMAGE_FOLDER = '/0-images';
+const IMAGE_FOLDER = '../0-images';
 
 /**
  * Containers for traffic light images
