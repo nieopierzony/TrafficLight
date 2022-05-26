@@ -1,0 +1,23 @@
+{
+  "name": "javascript",
+  "version": "0.1.0",
+  "description": "Traffic Light implementation",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "reload"
+  },
+  "keywords": [
+    "traffic-light",
+    "cs",
+    "practice"
+  ],
+  "author": "Philipp Zelinski <philipp.zelinski@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.16.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.6.2",
+    "reload": "^3.2.0"
+  }
+}
