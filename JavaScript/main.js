@@ -10,6 +10,7 @@ const IMAGE_FOLDER = '../0-images';
 const containers = ['left', 'top', 'right', 'bottom'].map((el) => document.getElementById(el));
 
 const enableButton = document.getElementById('enableButton');
+const nightModeButton = document.getElementById('nightMode');
 const debugText = document.getElementById('debug');
 
 /**
@@ -27,11 +28,18 @@ const States = [
   ['Red', 'RedYellow'],
 ];
 
+const NightStates = [
+  ['Yellow', 'Off'],
+  ['Off', 'Yellow'],
+];
+
 let currentState = 0;
 let enabled = true;
+let nightMode = false;
 
 const render = () => {
-  const colors = States[currentState];
+  const states = nightMode ? NightStates : States;
+  const colors = states[currentState];
   debugText.innerHTML = `State: ${currentState} | ${colors.join(' ')}`;
   for (const [i, container] of Object.entries(containers)) {
     const colorName = colors[i % 2];
@@ -41,17 +49,24 @@ const render = () => {
 };
 
 const nextState = () => {
-  const colors = States[currentState];
+  const states = nightMode ? NightStates : States;
+  const colors = states[currentState];
   if (!enabled && colors.every((s) => s === 'Red')) return;
-  if (currentState >= States.length - 1) currentState = -1;
+  if (currentState >= states.length - 1) currentState = -1;
   currentState++;
 };
 
-const onButtonClick = () => {
+const onEnableClick = () => {
   enabled = !enabled;
   enableButton.innerHTML = enabled ? 'Ausschalten' : 'Einschalten';
 };
-enableButton.addEventListener('click', onButtonClick);
+enableButton.addEventListener('click', onEnableClick);
+
+const onNightModeClick = () => {
+  nightMode = !nightMode;
+  nightModeButton.innerHTML = nightMode ? 'Tagmodus' : 'Nachtmodus';
+};
+nightModeButton.addEventListener('click', onNightModeClick);
 
 const onTimerTick = () => {
   nextState();
